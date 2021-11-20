@@ -37,16 +37,28 @@ function empty(basket) {
 }
 
 function removeItem(item, basket) {
-
+    let i = basket.indexOf(item);
+    if (i > -1) {
+        basket.splice(i, 1);
+        return item;
+    }
+    return null;
 }
 
 console.log('startTest');
 console.log(basket);
 //console.log(empty(basket));
 //console.log(basket);
-console.log('basket is full', isFull(basket))
+console.log('basket is full', isFull(basket));
 console.log('added item', addItem('apples', basket));
 console.log(listItems(basket));
+console.log('added item', addItem('mango', basket));
+console.log(listItems(basket));
+console.log('BREAK BREAK')
+console.log(removeItem('orange', basket));
+console.log('BREAK BREAK')
+console.log(listItems(basket));
+console.log('BREAK BREAK')
 console.log('added item', addItem('mango', basket));
 console.log(listItems(basket));
 console.log('stopTest');
