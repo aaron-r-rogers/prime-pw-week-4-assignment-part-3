@@ -4,10 +4,25 @@ console.log('***** Cart Functions *****');
 let basket = ['banana', 'orange', 'grapes', 'pineapple'];
 const maxItems = 5
 
+/*
 function addItem(item, basket) {
-    basket.push(item);
+  basket.push(item);
     return true;
 }
+*/
+
+function isFull(basket){
+    if (basket.length >= 5) {
+        return true;
+    } else return false;
+}
+
+function addItem(item, basket) {
+    if (isFull(basket) !== true) {
+        basket.push(item);
+        return true;
+    } else return false
+  }
 
 function listItems(basket) {
     for (items of basket) {
@@ -16,31 +31,22 @@ function listItems(basket) {
     return 'listed'
 }
 
-/*
-function listItems(basket) {
-    for (let i = 0; i < basket.length; i++) {
-        console.log(basket[i]);
-    }
-    return true
-}
-*/
-
 function empty(basket) {
     basket.splice(0, basket.length)
     return 'emptied'
 }
 
-function isFull(basket){
-    if (basket.length >= 5) {
-        return true;
-    } else return false;
+function removeItem(item, basket) {
+
 }
 
 console.log('startTest');
-console.log('added item', addItem('apples', basket));
-console.log(listItems(basket));
 console.log(basket);
 //console.log(empty(basket));
 //console.log(basket);
 console.log('basket is full', isFull(basket))
+console.log('added item', addItem('apples', basket));
+console.log(listItems(basket));
+console.log('added item', addItem('mango', basket));
+console.log(listItems(basket));
 console.log('stopTest');
